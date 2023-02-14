@@ -17,7 +17,7 @@ class Single_Linked_List
         System.out.println("\n");
         ll.insertFirst(20);
         System.out.println("After the Insertion \n");
-
+        ll.insertLast(30);  
         ll.display();
 
     }
@@ -43,6 +43,23 @@ class Single_Linked_List
         node first = new node(value);
         first.next = head;
         head = first;
+    }
+    
+    public void insertLast(int val)
+    {
+        node last = new node(val);
+       // temp = head;
+        if(head == null)
+        {
+            System.out.println("List is Empty");
+            addData(val);
+        }
+        else
+        {
+            tail.next = last;
+            tail = last;
+
+        }
     }
 
     public void addData(int data)
