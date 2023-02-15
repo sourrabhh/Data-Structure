@@ -18,6 +18,7 @@ class Single_Linked_List
         ll.insertFirst(20);
         System.out.println("After the Insertion \n");
         ll.insertLast(30);  
+        ll.insertAtIndex(100, 3);
         ll.display();
 
     }
@@ -32,6 +33,12 @@ class Single_Linked_List
             this.data = data;
             this.next = null;
         }
+        
+        public node(int data, node next)
+        {
+            this.data = data;
+            this.next = next;
+        } 
     }
 
     // Head & Tail Initialization 
@@ -59,6 +66,34 @@ class Single_Linked_List
             tail.next = last;
             tail = last;
 
+        }
+    }
+    
+    public void insertAtIndex(int value, int index)
+    {
+        if(index == 0)
+        {
+            insertFirst(value);
+           // size++;
+            return;
+        }
+        else if(index == size)
+        {
+            insertLast(value);
+            //size++;
+            return;
+        }
+        else
+        {
+            node temp = head;
+            for(int i = 1; i<index; i++)
+            {
+                temp = temp.next;
+            }
+
+            node atloc = new node(value, temp.next);
+            temp.next = atloc;
+            size++;
         }
     }
 
